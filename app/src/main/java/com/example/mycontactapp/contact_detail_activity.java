@@ -42,8 +42,7 @@ public class contact_detail_activity extends AppCompatActivity {
         Intent i = getIntent();
         contact.setName(i.getStringExtra("Name"));
         contact.setNumber(i.getStringExtra("Number"));
-
-        int i2 = i.getIntExtra("Icon",0);
+        int iconColor = i.getIntExtra("Icon",0);
 
         String c = String.valueOf( Objects.requireNonNull(i.getStringExtra("Name")).charAt(0) );
 
@@ -63,7 +62,7 @@ public class contact_detail_activity extends AppCompatActivity {
 
         GradientDrawable draw = new GradientDrawable();
         draw.setShape(GradientDrawable.OVAL);
-        draw.setColor(Color.parseColor(colors.get(i2)));
+        draw.setColor(Color.parseColor(colors.get(iconColor)));
         ////////////////////////////////
 
         TextViewData t = new TextViewData(c,draw);
@@ -107,7 +106,6 @@ public class contact_detail_activity extends AppCompatActivity {
         public void setBg(Drawable bg) {
             this.bg = bg;
         }
-
 
     }
 

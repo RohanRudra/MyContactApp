@@ -1,5 +1,7 @@
 package com.example.mycontactapp;
 
+import android.graphics.drawable.Drawable;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.Entity;
@@ -14,14 +16,16 @@ public class Contact extends BaseObservable {
 
     private String name;
     private String number;
+    private int iconColor;
 
     @Ignore
     public Contact(){};
 
-    public Contact(int id, String name, String number) {
+    public Contact(int id, String name, String number, int iconColor) {
         this.id = id;
         this.name = name;
         this.number = number;
+        this.iconColor = iconColor;
     }
 
 
@@ -53,5 +57,15 @@ public class Contact extends BaseObservable {
     public void setId(int id) {
         this.id = id;
         notifyPropertyChanged(BR.id);
+    }
+
+    @Bindable
+    public int getIconColor() {
+        return iconColor;
+    }
+
+    public void setIconColor(Integer iconColor) {
+        this.iconColor = iconColor;
+        notifyPropertyChanged(BR.iconColor);
     }
 }

@@ -2,14 +2,27 @@ package com.example.mycontactapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.graphics.drawable.DrawableContainerCompat;
+import androidx.appcompat.graphics.drawable.DrawableWrapperCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycontactapp.databinding.ActivityAddNewContactBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class AddNewContactActivity extends AppCompatActivity {
     private ActivityAddNewContactBinding activityAddNewContactBinding;
@@ -42,10 +55,15 @@ public class AddNewContactActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
             }
             else{
+                Random r = new Random();
+                int num = r.nextInt(8- 0) + 0;
+
                 //passing the contact to the MainActivity via Intent
                 Intent i = new Intent();
                 i.putExtra("Name",contact.getName());
                 i.putExtra("Number",contact.getNumber());
+                i.putExtra("iconColor", num);
+
                 setResult(RESULT_OK,i);
                 finish();
             }

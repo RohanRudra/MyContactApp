@@ -42,7 +42,6 @@ dependencies {
     //this is external dependency for circular imageview
     implementation ("de.hdodenhof:circleimageview:+")
 
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

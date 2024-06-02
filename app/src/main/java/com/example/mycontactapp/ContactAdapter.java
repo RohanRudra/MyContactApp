@@ -2,6 +2,7 @@ package com.example.mycontactapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +31,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Contact contact = contacts.get(holder.getAdapterPosition());
         Character c = contact.getName().charAt(0);
+
         holder.name.setText(contact.getName());
         holder.number.setText(contact.getNumber());
 
         /////////////////////////////////////////////////////
         List<String> colors;
-        colors=new ArrayList<String>();
+        colors = new ArrayList<String>();
 
         colors.add("#F39C12");
         colors.add("#F7DC6F");
@@ -47,24 +49,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         colors.add("#C39BD3");
         colors.add("#6495ED");
 
-        Random r = new Random();
-        int i1 = r.nextInt(8- 0) + 0;
         GradientDrawable draw = new GradientDrawable();
         draw.setShape(GradientDrawable.OVAL);
-        draw.setColor(Color.parseColor(colors.get(i1)));
+        draw.setColor(Color.parseColor(colors.get(contact.getIconColor())));
 
         holder.icon.setBackground(draw);
         holder.icon.setText(c.toString());
         //////////////////////////////////////////////////////
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+            //Detail Screen
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(mainActivity, contact_detail_activity.class);
-                i.putExtra("Icon",i1);
                 i.putExtra("Name",contact.getName());
                 i.putExtra("Number",contact.getNumber());
+                i.putExtra("Icon", contact.getIconColor());
                 v.getContext().startActivity(i);
             }
         });

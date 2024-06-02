@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:layout_marginStart="5dp"
     >
 
     <TextView
         android:id="@+id/icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:text="A"
         android:textSize="40sp"
         android:textAlignment="center"
@@ -21,7 +22,7 @@
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="6dp"
+        android:layout_margin="6dp"
         >
 
         <TextView
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:text="fhskf"
-            android:textSize="27sp"/>
+            android:textSize="24sp"/>
         <TextView
             android:layout_below="@id/name"
             android:id="@+id/number"

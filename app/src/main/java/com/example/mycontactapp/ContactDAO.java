@@ -7,6 +7,8 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import kotlinx.coroutines.flow.Flow;
+
 @Dao
 public interface ContactDAO {
 
